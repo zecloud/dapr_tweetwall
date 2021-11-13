@@ -1,0 +1,16 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: signalrbinding
+spec:
+  type: bindings.azure.signalr
+  version: v1
+  metadata:
+  - name: connectionString
+    secretKeyRef:
+      name: SIGNALRCONNECTIONSTRING
+      key: SIGNALRCONNECTIONSTRING
+  - name: hub
+    value: gangogh
+auth:
+  secretStore: envvar-secret-store
